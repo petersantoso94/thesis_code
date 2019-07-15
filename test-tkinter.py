@@ -259,7 +259,7 @@ trans = LoadTransition()
 
 #main tkinter
 root = Tk()
-root.title("ASL Text to Video")
+root.title("Text to ASL Video")
 root.geometry("500x100") #You want the size of the app to be 500x500
 root.resizable(0, 0) #Don't allow resizing in the x or y direction
 
