@@ -16,6 +16,8 @@ import sys
 from copy import deepcopy
 from PIL import Image
 from tkinter import *
+import datetime
+import time
 
 
 class Points():
@@ -274,8 +276,9 @@ def set_data():
     print("processing your video")
     threshold = inputSlider.get()
     text = inputText.get()
+    start = time.time()
     input_text = text.split(" ")
-    dir_path = "E:\\yulia\\thesis_code\\jsons\\"
+    dir_path = "../jsons/"
 
     words = []
     for i in range(len(input_text)):
@@ -363,6 +366,8 @@ def set_data():
     out.release()
     #add video output
     print("output file can be seen in: outputThesis/cgw_"+text.replace(" ", "_")+".mp4")
+    end = time.time()
+    print("Time for processing: "+str(end-start))
 
 Button(root, text="Get ASL Result", command=set_data).pack()
 

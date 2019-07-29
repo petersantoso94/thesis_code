@@ -1,3 +1,4 @@
+
 # import the necessary packages
 import imutils
 import numpy as np
@@ -24,7 +25,7 @@ if not args.get("video", False):
 else:
     camera = cv2.VideoCapture(args["video"])
 
-out = cv2.VideoWriter('outputThesis/test-skin.mp4', cv2.VideoWriter_fourcc('F', 'M', 'P', '4'), 30,(355, 400))
+# out = cv2.VideoWriter('outputThesis/test-skin.mp4', cv2.VideoWriter_fourcc('F', 'M', 'P', '4'), 30,(355, 400))
 count = 0
 # keep looping over the frames in the video
 while True:
@@ -53,7 +54,7 @@ while True:
     # mask to the frame
     skinMask = cv2.GaussianBlur(skinMask, (3, 3), 0)
     skin = cv2.bitwise_and(frame, frame, mask=skinMask)
-    out.write(skin)
+    # out.write(skin)
     cv2.imwrite("frame%d.jpg" % count, skin)
     # show the skin in the image along with the mask
     cv2.imshow("images", np.hstack([frame, skin]))
@@ -64,6 +65,6 @@ while True:
         break
 
 # cleanup the camera and close any open windows
-out.release()
+# out.release()
 camera.release()
 cv2.destroyAllWindows()
